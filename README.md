@@ -66,3 +66,20 @@ sequenceDiagram
     Assignments-->>main: Here's all the generated HTML
     Note right of main: Update the innerHTML of the <main> element in the DOM.
 ```
+
+## Entity Relationship Diagram
+```mermaid
+erDiagram
+    WALKER |o--o{ PET : walks
+    WALKER {
+        int id PK "Generated id"
+        string name "full name"
+        string email
+        string city
+    }
+    PET {
+        int id PK
+        string name 
+        int walkerId FK
+    }
+```
