@@ -1,6 +1,4 @@
-import { getWalkers } from "./database.js"
-
-const walkers = getWalkers()
+import { getWalkers, getCities } from "./database.js"
 
 document.addEventListener("click", (clickEvent) => {
     const clickedElement = clickEvent.target;
@@ -11,11 +9,15 @@ document.addEventListener("click", (clickEvent) => {
 })
 
 export const Walkers = () => {
+    const walkers = getWalkers()
+    const cities = getCities()
+
     let walkerHTML = "<ul>"
 
     for (const walker of walkers) {
+        const city = cities.find(({id}) => id === walker.cityId)
         walkerHTML += `<li data-id="${walker.id}"
-                            data-city="${walker.city}"
+                            data-city="${city.name}"
                             data-type="walker"
                             >${walker.name}
                         </li>`
