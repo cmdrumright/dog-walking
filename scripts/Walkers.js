@@ -1,7 +1,5 @@
 import { getWalkers } from "./database.js"
 
-const walkers = getWalkers()
-
 document.addEventListener("click", (clickEvent) => {
     const clickedElement = clickEvent.target;
 
@@ -11,6 +9,7 @@ document.addEventListener("click", (clickEvent) => {
 })
 
 export const Walkers = () => {
+    const walkers = getWalkers()
     let walkerHTML = "<ul>"
 
     for (const walker of walkers) {
